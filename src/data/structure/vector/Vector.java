@@ -49,6 +49,16 @@ public class Vector {
 		return this.elements[position];
 	}
 	
+	public int search(String element) {
+		for (int i = 0; i < this.size; i++) {
+			if (this.elements[i].equals(element)) {
+				return i;
+			}
+		}
+		
+		return -1;
+	}
+	
 	public void showVector() {
 		for (String element : this.elements) {
 			if (element != null) {

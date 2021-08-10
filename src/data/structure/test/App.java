@@ -20,7 +20,12 @@ public class App {
 		System.out.println(vector);
 		System.out.println();
 		
-		System.out.println(vector.search(3));
+//		System.out.println(vector.search(3));
+		
+		System.out.println(vector.search("Element 4"));
+		System.out.println();
+		
+		
 	}
 
 }

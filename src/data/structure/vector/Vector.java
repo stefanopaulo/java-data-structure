@@ -37,9 +37,35 @@ public class Vector {
 		return false;
 	}
 	
+	public int size() {
+		return this.size;
+	}
+	
 	public void showVector() {
 		for (String element : this.elements) {
-			System.out.println(element);
+			if (element != null) {
+				System.out.println(element);
+			}
 		}
+	}
+
+	@Override
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		
+		for (int i = 0; i < this.size-1; i++) {
+			sb.append(this.elements[i]);
+			sb.append(", ");
+		}
+		
+		if (this.size > 0) {
+			sb.append(this.elements[this.size-1]);
+		}
+		
+		sb.append("]");
+		
+		return sb.toString();
 	}
 }

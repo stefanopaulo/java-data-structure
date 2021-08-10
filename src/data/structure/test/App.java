@@ -18,6 +18,9 @@ public class App {
 		System.out.println();
 		
 		System.out.println(vector);
+		System.out.println();
+		
+		System.out.println(vector.search(3));
 	}
 
 }

@@ -41,6 +41,14 @@ public class Vector {
 		return this.size;
 	}
 	
+	public String search(int position) {
+		if (!(position >= 0 && position < this.size)) {
+			throw new IllegalArgumentException("Invalid position!");
+		}
+		
+		return this.elements[position];
+	}
+	
 	public void showVector() {
 		for (String element : this.elements) {
 			if (element != null) {

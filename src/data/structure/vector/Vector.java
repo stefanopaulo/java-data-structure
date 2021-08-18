@@ -37,6 +37,21 @@ public class Vector {
 		return false;
 	}
 	
+	public boolean add(String element, int position) {
+		if (!(position >= 0 && position < this.elements.length)) {
+			throw new IllegalArgumentException("Invalid position!");
+		}
+		
+		for (int i = this.size-1; i >= position; i--) {
+			this.elements[i+1] = this.elements[i]; 
+		}
+		
+		this.elements[position] = element;
+		this.size++;
+		
+		return true;
+	}
+	
 	public int size() {
 		return this.size;
 	}

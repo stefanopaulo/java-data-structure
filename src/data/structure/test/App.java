@@ -25,7 +25,9 @@ public class App {
 		System.out.println(vector.search("Element 4"));
 		System.out.println();
 		
+		vector.add("Element 4", 0);
 		
+		vector.showVector();
 	}
 
 }

@@ -42,7 +42,7 @@ public class Vector {
 	public boolean add(String element, int position) {
 		this.increaseVectorCapacity();
 		
-		if (!(position >= 0 && position < this.elements.length)) {
+		if (!(position >= 0 && position < this.size)) {
 			throw new IllegalArgumentException("Invalid position!");
 		}
 		
@@ -54,6 +54,18 @@ public class Vector {
 		this.size++;
 		
 		return true;
+	}
+	
+	public void removeElement(int position) {
+		if (!(position >= 0 && position < this.size)) {
+			throw new IllegalArgumentException("Invalid position!");
+		}
+		
+		for (int i = position; i < this.size-1; i++) {
+			this.elements[i] = this.elements[i+1]; 
+		}
+		
+		this.size--;
 	}
 	
 	public int size() {

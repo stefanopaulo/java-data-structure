@@ -27,7 +27,11 @@ public class App {
 		
 		vector.add("Element 4", 0);
 		
-		vector.showVector();
+		System.out.println(vector);
+		
+		vector.removeElement(0);
+		
+		System.out.println(vector);
 	}
 
 }

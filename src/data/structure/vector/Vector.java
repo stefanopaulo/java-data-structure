@@ -28,6 +28,8 @@ public class Vector {
 //	}
 	
 	public boolean add(String element) {
+		this.increaseVectorCapacity();
+		
 		if (this.size < this.elements.length) {
 			this.elements[this.size] = element;
 			this.size++;
@@ -38,6 +40,8 @@ public class Vector {
 	}
 	
 	public boolean add(String element, int position) {
+		this.increaseVectorCapacity();
+		
 		if (!(position >= 0 && position < this.elements.length)) {
 			throw new IllegalArgumentException("Invalid position!");
 		}
@@ -72,6 +76,18 @@ public class Vector {
 		}
 		
 		return -1;
+	}
+	
+	private void increaseVectorCapacity() {
+		if (this.size == this.elements.length) {
+			String[] newElements = new String[this.elements.length * 2];
+			
+			for (int i = 0; i < this.elements.length; i++) {
+				newElements[i] = this.elements[i];
+			}
+			
+			this.elements = newElements;
+		}
 	}
 	
 	public void showVector() {

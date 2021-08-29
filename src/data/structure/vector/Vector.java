@@ -1,15 +1,15 @@
 package data.structure.vector;
 
-public class Vector {
-	private Object[] elements;
+public class Vector<T> {
+	private T[] elements;
 	private int size;
 	
 	public Vector(int capacity) {
-		this.elements = new Object[capacity];
+		this.elements = (T[]) new Object[capacity];
 		this.size = 0;
 	}
 	
-	public boolean add(Object element) {
+	public boolean add(T element) {
 		this.increaseVectorCapacity();
 		
 		if (this.size < this.elements.length) {
@@ -21,7 +21,7 @@ public class Vector {
 		return false;
 	}
 	
-	public boolean add(Object element, int position) {
+	public boolean add(T element, int position) {
 		this.increaseVectorCapacity();
 		
 		if (!(position >= 0 && position < this.size)) {
@@ -54,7 +54,7 @@ public class Vector {
 		return this.size;
 	}
 	
-	public Object search(int position) {
+	public T search(int position) {
 		if (!(position >= 0 && position < this.size)) {
 			throw new IllegalArgumentException("Invalid position!");
 		}
@@ -62,7 +62,7 @@ public class Vector {
 		return this.elements[position];
 	}
 	
-	public int search(Object element) {
+	public int search(T element) {
 		for (int i = 0; i < this.size; i++) {
 			if (this.elements[i].equals(element)) {
 				return i;
@@ -74,7 +74,7 @@ public class Vector {
 	
 	private void increaseVectorCapacity() {
 		if (this.size == this.elements.length) {
-			Object[] newElements = new Object[this.elements.length * 2];
+			T[] newElements = (T[]) new Object[this.elements.length * 2];
 			
 			for (int i = 0; i < this.elements.length; i++) {
 				newElements[i] = this.elements[i];

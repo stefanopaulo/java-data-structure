@@ -32,6 +32,14 @@ public class App {
 		vector.removeElement(0);
 		
 		System.out.println(vector);
+		
+//		vector.removeElement(10);
+		
+		vector.add(4);
+		
+		System.out.println("Size: " + vector.size());
+		
+		System.out.println(vector);
 	}
 
 }

@@ -1,33 +1,15 @@
 package data.structure.vector;
 
 public class Vector {
-	private String[] elements;
+	private Object[] elements;
 	private int size;
 	
 	public Vector(int capacity) {
-		this.elements = new String[capacity];
+		this.elements = new Object[capacity];
 		this.size = 0;
 	}
 	
-//	public void add(String element) {
-//		for (int i = 0; i < this.elements.length; i++) {
-//			if (this.elements[i] == null) {
-//				this.elements[i] = element;
-//				break;
-//			}
-//		}
-//	}
-	
-//	public void add(String element) throws Exception {
-//		if (this.size < this.elements.length) {
-//			this.elements[this.size] = element;
-//			this.size++;			
-//		} else {
-//			throw new Exception("Vector is already filled, it is not possible to add another element.");
-//		}
-//	}
-	
-	public boolean add(String element) {
+	public boolean add(Object element) {
 		this.increaseVectorCapacity();
 		
 		if (this.size < this.elements.length) {
@@ -39,7 +21,7 @@ public class Vector {
 		return false;
 	}
 	
-	public boolean add(String element, int position) {
+	public boolean add(Object element, int position) {
 		this.increaseVectorCapacity();
 		
 		if (!(position >= 0 && position < this.size)) {
@@ -72,7 +54,7 @@ public class Vector {
 		return this.size;
 	}
 	
-	public String search(int position) {
+	public Object search(int position) {
 		if (!(position >= 0 && position < this.size)) {
 			throw new IllegalArgumentException("Invalid position!");
 		}
@@ -80,7 +62,7 @@ public class Vector {
 		return this.elements[position];
 	}
 	
-	public int search(String element) {
+	public int search(Object element) {
 		for (int i = 0; i < this.size; i++) {
 			if (this.elements[i].equals(element)) {
 				return i;
@@ -92,7 +74,7 @@ public class Vector {
 	
 	private void increaseVectorCapacity() {
 		if (this.size == this.elements.length) {
-			String[] newElements = new String[this.elements.length * 2];
+			Object[] newElements = new Object[this.elements.length * 2];
 			
 			for (int i = 0; i < this.elements.length; i++) {
 				newElements[i] = this.elements[i];
@@ -103,7 +85,7 @@ public class Vector {
 	}
 	
 	public void showVector() {
-		for (String element : this.elements) {
+		for (Object element : this.elements) {
 			if (element != null) {
 				System.out.println(element);
 			}

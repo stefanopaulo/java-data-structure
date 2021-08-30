@@ -50,6 +50,22 @@ public class Vector<T> {
 		this.size--;
 	}
 	
+	public void remove(T element) {
+		boolean contain = this.contains(element);
+		
+		if (!contain) {
+			throw new IllegalArgumentException("Invalid argument!");
+		}
+		
+		int pos = search(element);
+		
+		removeElement(pos);
+	}
+	
+	public T get(int position) {
+		return search(position);
+	}
+	
 	public int size() {
 		return this.size;
 	}
@@ -72,6 +88,15 @@ public class Vector<T> {
 		return -1;
 	}
 	
+	
+	public boolean contains(T element) {
+		return search(element) > -1;
+	}
+	
+	public int lastIndexOf() {
+		return this.size - 1;
+	}
+	
 	private void increaseVectorCapacity() {
 		if (this.size == this.elements.length) {
 			T[] newElements = (T[]) new Object[this.elements.length * 2];
@@ -84,8 +109,13 @@ public class Vector<T> {
 		}
 	}
 	
+	public void clear() {
+		this.elements = (T[]) new Object[10];
+		this.size = 0;
+	}
+	
 	public void showVector() {
-		for (Object element : this.elements) {
+		for (T element : this.elements) {
 			if (element != null) {
 				System.out.println(element);
 			}
